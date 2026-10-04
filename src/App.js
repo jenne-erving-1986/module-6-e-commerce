@@ -1,5 +1,5 @@
 import Footer from './components/Footer'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
@@ -9,15 +9,17 @@ import BookInfo from './pages/BookInfo';
 function App() {
   return (
     <Router>
-    <div className="App">
-      <Nav />
-      <Route path="/" exact component={Home} />
-      <Route path="/books" exact render={() => <Books books={books} />} />
-      <Route path="/books/:id" render={() => <BookInfo books={books} />} />
-      <Footer />
-    </div>
+      <div>
+        <Nav>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/books" exact element={<Books books={books} />} />
+            <Route path="/books/:id" exact element={<BookInfo books={books} />} />
+          </Routes>
+        </Nav>
+      </div>
     </Router>
-  );
+  )
 }
 
 export default App;
