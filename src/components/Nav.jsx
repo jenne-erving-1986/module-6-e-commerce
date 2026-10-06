@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LibraryLogo from '../assets/library.svg.svg';
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ children }) => {
     function openMenu() {
-        document.body.classlist += " menu--open";
+        document.body.classList += " menu--open";
     }
     function closeMenu() {
         document.body.classList.remove("menu--open");
     }
     return (
+        <>
         <nav>
             <div className="nav__container">
                 <Link to="/">
@@ -58,7 +59,8 @@ const Nav = () => {
             </div>
 
         </nav>
-
+        {children}
+        </>
     )
 }
 
