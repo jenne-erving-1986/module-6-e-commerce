@@ -14,7 +14,7 @@ function addBookToCart(book) {
     addToCart(book);
     
 }
-function bookExistsOnCart(){
+function bookExistsOnCart() {
    return cart.find(book => book.id === +id);
 }
 
@@ -61,19 +61,18 @@ function bookExistsOnCart(){
                                 Id dolore asperiores mollitia quasi.
                             </p>
                         </div>
-                        
-                        {bookExistsOnCart() ||
-                        <Link to={`/cart`} className="book__link">
-                            <button classname="btn">Checkout</button>
-                        </Link>
-                            added ? <button className="btn">Checkout</button> : 
+                            
+                            {bookExistsOnCart() ? (
+                            <Link to="/cart" className="book_link">
+                            <button className="btn">Checkout</button>
+                            </Link>
+                            ) : (
                             <button className="btn" onClick={() => addBookToCart(book)}>
-                                 Add to Cart
-                        </button>
-                        }
+                            Add to Cart
+                            </button>
+                    )}
 
-                        
-                           
+
                     </div>
                 </div>
             </div>
