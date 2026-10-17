@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 import Price from "./Price";
@@ -37,7 +36,7 @@ const Book = ({ book }) => {
       img ? (
       <><Link to={`/books/${book.id}`}>
         <figure className="book__img--wrapper">
-          <img src={img.src} className="book__img" />
+          <img src={img.src} className="book__img" alt={book.title} />
         </figure>
       </Link>
       <div className="book__title">
